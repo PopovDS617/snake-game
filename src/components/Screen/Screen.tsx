@@ -5,12 +5,12 @@ import useGame from '../../hooks/useGame';
 import { setStyles } from './screen-utils';
 
 const Screen = () => {
-  const { foodPosition } = useGame();
+  const { coordinates, foodPosition } = useGame();
 
   return (
     <div className="screen">
       {board.map((item, index) => {
-        const color = setStyles({ index, foodPosition });
+        const color = setStyles({ index, foodPosition, coordinates });
 
         return <div key={index} style={{ background: color }} />;
       })}
