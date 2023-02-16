@@ -1,14 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import SnakeState, {
-  defaultCoordinates,
+  initialSnakeCoordinates,
   Coordinates,
 } from '../../models/snake-types';
 
 const initialState: SnakeState = {
-  coordinates: defaultCoordinates,
+  coordinates: initialSnakeCoordinates,
   score: 0,
-
   hasFailed: false,
 };
 
