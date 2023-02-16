@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/store-hooks';
 import { snakeActions } from '../../store/snake/snakeSlice';
 import { useCallback } from 'react';
 import {

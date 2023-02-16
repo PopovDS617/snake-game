@@ -1,4 +1,4 @@
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from '../../store/store-hooks';
 import { useState, useCallback } from 'react';
 import { Coordinates } from '../../models/snake-types';
 import { board } from '../../utils/board';
