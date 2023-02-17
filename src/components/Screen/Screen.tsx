@@ -18,4 +18,4 @@ const Screen = () => {
   );
 };
 
-export default Screen;
+export default React.memo(Screen);

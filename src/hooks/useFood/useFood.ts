@@ -1,15 +1,6 @@
 import { useAppSelector } from '../../store/store-hooks';
 import { useState, useCallback } from 'react';
-import { Coordinates } from '../../models/snake-types';
-import { board } from '../../utils/board';
-
-export const getRandomPosition = (coordinates: Coordinates): number => {
-  const freeCoordinates = board.filter((item) => !coordinates.includes(item));
-  const randomFreeCoordinate = Math.floor(
-    Math.random() * freeCoordinates.length
-  );
-  return freeCoordinates[randomFreeCoordinate];
-};
+import { getRandomPosition } from './use-food-utils';
 
 const useFood = () => {
   const coordinates = useAppSelector((state) => state.snake.coordinates);
