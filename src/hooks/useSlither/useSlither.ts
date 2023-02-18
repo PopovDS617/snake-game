@@ -7,6 +7,7 @@ import {
   moveSnakeForward,
 } from '../useSlither/use-slither-utils';
 import { directions } from '../../utils/board';
+import useControlButtons from '../useControlButtons/useControlButtons';
 
 const useSlither = () => {
   const dispatch = useAppDispatch();
@@ -15,18 +16,21 @@ const useSlither = () => {
   // state
   const coordinates = useAppSelector((state) => state.snake.coordinates);
 
+  // auxiliary hooks
+  const { currentDirection } = useControlButtons();
+
   const changeCoordinates = useCallback(
     (direction: number) => {
-      const newCoordinates = moveSnakeForward(coordinates, directions.right);
+      const newCoordinates = moveSnakeForward(coordinates, currentDirection);
 
       dispatch(setCoordinates(newCoordinates));
     },
-    [directions, coordinates]
+    [currentDirection, coordinates]
   );
 
   const moveSnake = useCallback(() => {
-    changeCoordinates(directions.right);
-  }, [directions, changeCoordinates]);
+    changeCoordinates(currentDirection);
+  }, [currentDirection, changeCoordinates]);
 
   return { moveSnake };
 };
