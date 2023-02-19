@@ -6,7 +6,7 @@ const useHitItself = () => {
   const dispatch = useAppDispatch();
 
   const coordinates = useAppSelector((state) => state.snake.coordinates);
-  const { setFailed } = snakeActions;
+  const { setFailed, setCoordinates } = snakeActions;
 
   useEffect(() => {
     const snakeHead = coordinates[coordinates.length - 1];
@@ -17,6 +17,7 @@ const useHitItself = () => {
 
     if (isHitItself) {
       dispatch(setFailed(true));
+      dispatch(setCoordinates([0, 1, 2, 3]));
     }
   }, [coordinates]);
 };
