@@ -21,8 +21,8 @@ const snakeSlice = createSlice({
     setFailed(state, action: PayloadAction<boolean>) {
       state.hasFailed = action.payload;
     },
-    incrementScore(state) {
-      state.score++;
+    incrementScore<ActionCreatorWithoutPayload>(state: SnakeState): void {
+      state.score += 1;
     },
     clearScore(state) {
       state.score = 0;

@@ -1,12 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../../store/store-hooks';
 import { snakeActions } from '../../store/snake/snakeSlice';
-import { useCallback } from 'react';
-import {
-  getDirection,
-  getNewCoordinates,
-  moveSnakeForward,
-} from '../useSlither/use-slither-utils';
-import { directions } from '../../utils/board';
+import { useCallback, useEffect } from 'react';
+import { moveSnakeForward } from '../useSlither/use-slither-utils';
 import useControlButtons from '../useControlButtons/useControlButtons';
 
 const useSlither = () => {
@@ -17,7 +12,7 @@ const useSlither = () => {
   const coordinates = useAppSelector((state) => state.snake.coordinates);
 
   // auxiliary hooks
-  const { currentDirection } = useControlButtons();
+  const currentDirection = useControlButtons();
 
   const changeCoordinates = useCallback(
     (direction: number) => {
