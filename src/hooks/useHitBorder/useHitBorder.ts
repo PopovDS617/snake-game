@@ -8,20 +8,20 @@ import {
 
 const useHitBorder = () => {
   const dispatch = useAppDispatch();
-  const { setFailed } = snakeActions;
+  const { setFailed, setCoordinates } = snakeActions;
 
   // state
   const coordinates = useAppSelector((state) => state.snake.coordinates);
 
   useEffect(() => {
     const currCoordinate = coordinates[coordinates.length - 1];
-    const prevCoordinate = coordinates[coordinates.length - 2];
 
-    const isHitVertical = isHitVerticalBorder(currCoordinate, prevCoordinate);
+    const isHitVertical = isHitVerticalBorder(currCoordinate);
     const isHitHorizontal = isHitHorizontalBorder(currCoordinate);
 
     if (isHitVertical || isHitHorizontal) {
       dispatch(setFailed(true));
+      dispatch(setCoordinates([0, 1, 2, 3]));
     }
   }, [coordinates]);
 };
