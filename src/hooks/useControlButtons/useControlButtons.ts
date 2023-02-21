@@ -6,19 +6,17 @@ const useControlButtons = () => {
 
   useEffect(() => {
     const changeDirection = ({ key }: KeyboardEvent) => {
-      switch (key) {
-        case 'ArrowRight':
-          setCurrentDirection(directions.right);
-          break;
-        case 'ArrowDown':
-          setCurrentDirection(directions.down);
-          break;
-        case 'ArrowLeft':
-          setCurrentDirection(directions.left);
-          break;
-        case 'ArrowUp':
-          setCurrentDirection(directions.up);
-          break;
+      if (key === 'ArrowRight' && currentDirection !== directions.left) {
+        setCurrentDirection(directions.right);
+      }
+      if (key === 'ArrowLeft' && currentDirection !== directions.right) {
+        setCurrentDirection(directions.left);
+      }
+      if (key === 'ArrowDown' && currentDirection !== directions.up) {
+        setCurrentDirection(directions.down);
+      }
+      if (key === 'ArrowUp' && currentDirection !== directions.down) {
+        setCurrentDirection(directions.up);
       }
     };
 
