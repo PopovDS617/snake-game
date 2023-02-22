@@ -8,6 +8,7 @@ import SnakeState, {
 const initialState: SnakeState = {
   coordinates: initialSnakeCoordinates,
   score: 0,
+  bestScore: 0,
   hasFailed: false,
 };
 
