@@ -6,7 +6,7 @@ import {
   isHitHorizontalBorder,
 } from './use-hit-border-utils';
 
-const useHitBorder = () => {
+const useHitBorder = (currentDirection: number) => {
   const dispatch = useAppDispatch();
   const { setFailed, setCoordinates } = snakeActions;
 
@@ -16,7 +16,7 @@ const useHitBorder = () => {
   useEffect(() => {
     const currCoordinate = coordinates[coordinates.length - 1];
 
-    const isHitVertical = isHitVerticalBorder(currCoordinate);
+    const isHitVertical = isHitVerticalBorder(currCoordinate, currentDirection);
     const isHitHorizontal = isHitHorizontalBorder(currCoordinate);
 
     if (isHitVertical || isHitHorizontal) {

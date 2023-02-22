@@ -23,7 +23,7 @@ const useGame = () => {
   const currentDirection = useControlButtons();
 
   // check for failure
-  useHitBorder();
+  useHitBorder(currentDirection);
   useHitItself();
 
   // eat food and grow in size
