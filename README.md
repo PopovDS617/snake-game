@@ -10,8 +10,8 @@
 
 ## TO DO:
 
-- [ ] add useGame hook
-- [ ] add controls
+- [x] add useGame hook
+- [x] add controls
 - [ ] add styles
-- [ ] add score
-- [ ] add bestscore (store in local storage)
+- [x] add score
+- [x] add bestscore (store in local storage)
