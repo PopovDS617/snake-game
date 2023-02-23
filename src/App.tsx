@@ -10,11 +10,13 @@ import ScoreList from './components/Score/ScoreList';
 function App() {
   return (
     <div className="app">
-      <div>
-        <ScoreList />
+      <div className="game-container">
+        <div>
+          <ScoreList />
+        </div>
+        <Screen />
+        <Controls />
       </div>
-      <Screen />
-      <Controls />
     </div>
   );
 }

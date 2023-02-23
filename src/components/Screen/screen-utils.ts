@@ -12,10 +12,10 @@ export const setStyles = ({
   hasFailed,
 }: Styles) => {
   if (coordinates.some((item) => item === index)) {
-    return 'green';
+    return 'snake-body';
   }
 
   if (foodPosition === index) {
-    return 'red';
+    return 'food';
   }
 };

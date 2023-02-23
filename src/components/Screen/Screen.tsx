@@ -15,14 +15,14 @@ const Screen = () => {
       ) : (
         <div className="board">
           {board.map((item, index) => {
-            const color = setStyles({
+            const style = setStyles({
               index,
               foodPosition,
               coordinates,
               hasFailed,
             });
 
-            return <div key={index} style={{ background: color }} />;
+            return <div key={index} className={style} />;
           })}
         </div>
       )}

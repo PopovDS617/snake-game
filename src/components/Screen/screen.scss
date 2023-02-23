@@ -1,10 +1,15 @@
 .screen {
   transition: 0.5s ease;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   background: #191f17;
   padding: 20px;
   border-radius: 20px;
+
+  @media (min-width: 768px) {
+    width: 400px;
+    height: 400px;
+  }
 }
 
 .board {
@@ -13,9 +18,29 @@
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+
+  div {
+    background: #292b29;
+    border: 1px solid #333532;
+  }
+
+  .snake-body {
+    background: green;
+  }
+
+  .food {
+    background: red;
+    z-index: 999;
+    border: none;
+    animation: glow 1s infinite alternate;
+  }
 }
 
-.board div {
-  background: #292b29;
-  border: 1px solid #333532;
+@keyframes glow {
+  from {
+    box-shadow: 0 0 2px 0px red;
+  }
+  to {
+    box-shadow: 0 0 5px 3px red;
+  }
 }

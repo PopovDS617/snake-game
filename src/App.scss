@@ -1,11 +1,23 @@
 .app {
+  height: 100vh;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.game-container {
+  border-radius: 20px;
+  width: 100%;
+  background-color: rgb(4, 0, 65);
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  height: 100vh;
-
-  @media screen and (max-width: 600px) {
-    height: 90vh;
+  @media (min-width: 768px) {
+    max-width: 60%;
+  }
+  @media (min-width: 1380px) {
+    max-width: 30%;
   }
 }
