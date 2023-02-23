@@ -1,9 +1,7 @@
 import React from 'react';
 import { useAppSelector } from '../../store/store-hooks';
 
-const CurrentScore = () => {
-  const currentScore = useAppSelector((state) => state.snake.score);
-
+const CurrentScore = ({ currentScore }: { currentScore: number }) => {
   return <div>CurrentScore is {currentScore}</div>;
 };
 

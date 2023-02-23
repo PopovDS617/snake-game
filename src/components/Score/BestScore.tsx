@@ -1,11 +1,4 @@
-import React from 'react';
-import { useAppSelector } from '../../store/store-hooks';
-
-type Props = {};
-
-const BestScore = (props: Props) => {
-  const bestScore = useAppSelector((state) => state.snake.bestScore);
-
+const BestScore = ({ bestScore }: { bestScore: number }) => {
   return <div>BestScore is {bestScore}</div>;
 };
 
