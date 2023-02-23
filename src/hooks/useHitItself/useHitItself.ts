@@ -17,7 +17,6 @@ const useHitItself = () => {
 
     if (isHitItself) {
       dispatch(setFailed(true));
-      dispatch(setCoordinates([0, 1, 2, 3]));
     }
   }, [coordinates]);
 };

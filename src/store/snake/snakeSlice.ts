@@ -25,7 +25,7 @@ const snakeSlice = createSlice({
     incrementScore<ActionCreatorWithoutPayload>(state: SnakeState): void {
       state.score += 1;
     },
-    clearScore(state) {
+    clearCurrentScore(state) {
       state.score = 0;
     },
   },

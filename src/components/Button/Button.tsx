@@ -2,11 +2,12 @@ import React from 'react';
 
 interface Props {
   content: string;
+  onTurn: () => void;
 }
 
 const Button = (props: Props) => {
   return (
-    <button className="control-button">
+    <button className="control-button" onClick={props.onTurn}>
       <span>{props.content}</span>
     </button>
   );

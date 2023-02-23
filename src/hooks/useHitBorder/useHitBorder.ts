@@ -21,7 +21,6 @@ const useHitBorder = (currentDirection: number) => {
 
     if (isHitVertical || isHitHorizontal) {
       dispatch(setFailed(true));
-      dispatch(setCoordinates([0, 1, 2, 3]));
     }
   }, [coordinates]);
 };

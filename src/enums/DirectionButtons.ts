@@ -3,5 +3,5 @@ export enum DirectionButtons {
   Up = 'ArrowUp',
   Right = 'ArrowRight',
   Down = 'ArrowDown',
-  Stop = 'Space',
+  Space = '',
 }

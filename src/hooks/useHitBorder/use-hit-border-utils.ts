@@ -4,11 +4,20 @@ export const isHitVerticalBorder = (
   currCoordinate: number,
   currentDirection: number
 ) => {
-  if (currentDirection === 1 && currCoordinate % 10 === 0) {
+  const prevCoordinate = currCoordinate - 1;
+  const nextCoordinate = currCoordinate + 1;
+
+  if (
+    currentDirection === 1 &&
+    [9, 19, 29, 39, 49, 59, 69, 79, 89, 99].includes(currCoordinate) &&
+    prevCoordinate
+  ) {
     return true;
   }
-  if (currentDirection === -1 && (currCoordinate + 1) % 10 === 0) {
-    console.log(currCoordinate);
+  if (
+    currentDirection === -1 &&
+    [10, 20, 30, 40, 50, 60, 70, 80, 90].includes(currCoordinate)
+  ) {
     return true;
   }
 

@@ -8,10 +8,11 @@ import useHitBorder from './useHitBorder/useHitBorder';
 import useHitItself from './useHitItself/useHitItself';
 import { getNewCoordinates } from '../hooks/useSlither/use-slither-utils';
 import useControlButtons from './useControlButtons/useControlButtons';
+import { initialSnakeCoordinates } from '../models/snake-types';
 
 const useGame = () => {
   const dispatch = useAppDispatch();
-  const { setCoordinates, incrementScore } = snakeActions;
+  const { setCoordinates, incrementScore, clearCurrentScore } = snakeActions;
 
   // state
   const coordinates = useAppSelector((state) => state.snake.coordinates);
@@ -21,7 +22,6 @@ const useGame = () => {
   const { foodPosition, generateRandomFoodPosition } = useFood();
   const { moveSnake } = useSlither();
   const currentDirection = useControlButtons();
-
   // check for failure
   useHitBorder(currentDirection);
   useHitItself();
@@ -45,6 +45,7 @@ const useGame = () => {
 
   //regular movement
   useEffect(() => {
+    console.log(coordinates);
     if (!hasFailed) {
       const interval = setInterval(() => {
         moveSnake();
@@ -55,6 +56,16 @@ const useGame = () => {
       };
     }
   }, [coordinates, directions]);
+
+  //back to default
+  useEffect(() => {
+    console.log(currentDirection);
+    if (!hasFailed) {
+      generateRandomFoodPosition();
+      dispatch(setCoordinates(initialSnakeCoordinates));
+      dispatch(clearCurrentScore());
+    }
+  }, [hasFailed]);
 
   return {
     foodPosition,
