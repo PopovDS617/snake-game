@@ -8,15 +8,22 @@ import useHitBorder from './useHitBorder/useHitBorder';
 import useHitItself from './useHitItself/useHitItself';
 import { getNewCoordinates } from '../hooks/useSlither/use-slither-utils';
 import useControlButtons from './useControlButtons/useControlButtons';
-import { initialSnakeCoordinates } from '../models/snake-types';
 
 const useGame = () => {
   const dispatch = useAppDispatch();
-  const { setCoordinates, incrementScore, clearCurrentScore } = snakeActions;
+  const {
+    setCoordinates,
+    incrementScore,
+    clearCurrentScore,
+    increaseSpeed,
+    resetSpeed,
+    resetCoordinates,
+  } = snakeActions;
 
   // state
-  const coordinates = useAppSelector((state) => state.snake.coordinates);
-  const hasFailed = useAppSelector((state) => state.snake.hasFailed);
+  const { coordinates, hasFailed, score, speed } = useAppSelector(
+    (state) => state.snake
+  );
 
   // auxiliary hooks
   const { foodPosition, generateRandomFoodPosition } = useFood();
@@ -29,7 +36,7 @@ const useGame = () => {
   // eat food and grow in size
   const growLarger = useCallback(() => {
     const newCoordinates = getNewCoordinates(coordinates, currentDirection);
-
+    dispatch(increaseSpeed());
     dispatch(setCoordinates(newCoordinates));
   }, [currentDirection, coordinates]);
 
@@ -45,11 +52,10 @@ const useGame = () => {
 
   //regular movement
   useEffect(() => {
-    console.log(coordinates);
     if (!hasFailed) {
       const interval = setInterval(() => {
         moveSnake();
-      }, 150);
+      }, speed);
 
       return () => {
         clearInterval(interval);
@@ -59,10 +65,10 @@ const useGame = () => {
 
   //back to default
   useEffect(() => {
-    console.log(currentDirection);
     if (!hasFailed) {
       generateRandomFoodPosition();
-      dispatch(setCoordinates(initialSnakeCoordinates));
+      dispatch(resetSpeed());
+      dispatch(resetCoordinates());
       dispatch(clearCurrentScore());
     }
   }, [hasFailed]);
@@ -70,6 +76,8 @@ const useGame = () => {
   return {
     foodPosition,
     coordinates,
+    hasFailed,
+    score,
   };
 };
 

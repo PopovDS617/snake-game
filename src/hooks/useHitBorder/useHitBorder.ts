@@ -15,8 +15,13 @@ const useHitBorder = (currentDirection: number) => {
 
   useEffect(() => {
     const currCoordinate = coordinates[coordinates.length - 1];
+    const prevCoordinate = coordinates[coordinates.length - 2];
 
-    const isHitVertical = isHitVerticalBorder(currCoordinate, currentDirection);
+    const isHitVertical = isHitVerticalBorder(
+      currCoordinate,
+      currentDirection,
+      prevCoordinate
+    );
     const isHitHorizontal = isHitHorizontalBorder(currCoordinate);
 
     if (isHitVertical || isHitHorizontal) {
