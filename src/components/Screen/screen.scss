@@ -1,16 +1,21 @@
 .screen {
   transition: 0.5s ease;
-
-  border-radius: 20px;
-  background: #31382e;
+  width: 400px;
+  height: 400px;
+  background: #191f17;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  border-radius: 20px;
 }
 
-.screen div {
+.board {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.board div {
   background: #292b29;
   border: 1px solid #333532;
-  width: 25px;
-  height: 25px;
 }
