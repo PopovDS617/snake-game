@@ -15,3 +15,5 @@
 - [ ] add styles
 - [x] add score
 - [x] add bestscore (store in local storage)
+- [ ] add animations
+- [ ] add custom snake head
