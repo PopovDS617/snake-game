@@ -1,4 +1,4 @@
-## DEMO not yet, still in dev
+## DEMO https://snake-petprj.vercel.app/
 
 ## Getting Started
 
