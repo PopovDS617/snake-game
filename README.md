@@ -12,8 +12,9 @@
 
 - [x] add useGame hook
 - [x] add controls
-- [ ] add styles
+- [x] add styles
 - [x] add score
 - [x] add bestscore (store in local storage)
-- [ ] add animations
+- [x] add animations
 - [ ] add custom snake head
+- [ ] add initial screen

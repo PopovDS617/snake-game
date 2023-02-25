@@ -126,10 +126,14 @@ table {
   border-spacing: 0;
 }
 
+button {
+  border: none;
+}
 //
 body {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
-
+  -webkit-tap-highlight-color: transparent;
   overflow: auto;
   margin: 0;
   font-family: 'Bubblegum Sans', cursive;
