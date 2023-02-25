@@ -1,5 +1,5 @@
 import React from 'react';
-import { turnHandler } from '../../hooks/useControlButtons/control-buttons-class';
+import { turnHandler } from '../../hooks/useControlButtons/use-control-buttons-utils';
 import Button from './Button';
 import { DirectionButtons } from '../../enums/DirectionButtons';
 import './controls.scss';
@@ -12,6 +12,7 @@ const DirectionControls = () => {
           <Button
             variant="direction-button-vertical"
             direction="↑"
+            bindedButton="ArrowUp"
             onTurn={turnHandler.bind(null, DirectionButtons.Up)}
           />
         </div>
@@ -21,6 +22,7 @@ const DirectionControls = () => {
           <Button
             variant="direction-button-horizontal"
             direction="←"
+            bindedButton="ArrowLeft"
             onTurn={turnHandler.bind(null, DirectionButtons.Left)}
           />
         </div>
@@ -28,6 +30,7 @@ const DirectionControls = () => {
           <Button
             variant="direction-button-horizontal"
             direction="→"
+            bindedButton="ArrowRight"
             onTurn={turnHandler.bind(null, DirectionButtons.Right)}
           />
         </div>
@@ -38,6 +41,7 @@ const DirectionControls = () => {
           <Button
             variant="direction-button-vertical"
             direction="↓"
+            bindedButton="ArrowDown"
             onTurn={turnHandler.bind(null, DirectionButtons.Down)}
           />
         </div>

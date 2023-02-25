@@ -17,11 +17,7 @@ const useHitBorder = (currentDirection: number) => {
     const currCoordinate = coordinates[coordinates.length - 1];
     const prevCoordinate = coordinates[coordinates.length - 2];
 
-    const isHitVertical = isHitVerticalBorder(
-      currCoordinate,
-      currentDirection,
-      prevCoordinate
-    );
+    const isHitVertical = isHitVerticalBorder(currCoordinate, prevCoordinate);
     const isHitHorizontal = isHitHorizontalBorder(currCoordinate);
 
     if (isHitVertical || isHitHorizontal) {

@@ -29,6 +29,7 @@ const useGame = () => {
   const { foodPosition, generateRandomFoodPosition } = useFood();
   const { moveSnake } = useSlither();
   const currentDirection = useControlButtons();
+
   // check for failure
   useHitBorder(currentDirection);
   useHitItself();

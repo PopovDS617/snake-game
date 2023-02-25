@@ -24,7 +24,7 @@ const Modal = (props: Props) => {
       <p className="modal-text">{`Oops, game over : (`}</p>
 
       <p className="modal-text">
-        press <span className="modal-text__enter">Start</span> to play again
+        press <span className="modal-text__start">Start</span> to play again
       </p>
     </motion.div>
   );

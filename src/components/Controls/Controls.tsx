@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './Button';
-import { turnHandler } from '../../hooks/useControlButtons/control-buttons-class';
+import { turnHandler } from '../../hooks/useControlButtons/use-control-buttons-utils';
 import { DirectionButtons } from '../../enums/DirectionButtons';
 import './controls.scss';
 import DirectionControls from './DirectionControls';
@@ -17,6 +17,7 @@ const Controls = () => {
             <Button
               variant="start-button"
               direction="Start"
+              bindedButton="Enter"
               onTurn={turnHandler.bind(null, DirectionButtons.Enter)}
             />
           </div>
