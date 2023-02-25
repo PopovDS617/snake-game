@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { directions } from '../../utils/board';
-import { useAppDispatch, useAppSelector } from '../../store/store-hooks';
 import { snakeActions } from '../../store/snake/snakeSlice';
+import { useAppDispatch, useAppSelector } from '../../store/store-hooks';
+import { directions } from '../../utils/board';
 
 import { controlsActions } from '../../store/controls/controlsSlice';
 
 const useControlButtons = () => {
   const [currentDirection, setCurrentDirection] = useState(directions.right);
 
-  const hasFailed = useAppSelector((state) => state.snake.hasFailed);
-  const { setFailed } = snakeActions;
+  const { hasFailed, isInitial } = useAppSelector((state) => state.snake);
+  const { setFailed, setInitial } = snakeActions;
   const { setPressedButton } = controlsActions;
   const dispatch = useAppDispatch();
 
@@ -31,10 +31,16 @@ const useControlButtons = () => {
       dispatch(setPressedButton('ArrowUp'));
     }
     if (key === 'Enter') {
+      if (isInitial) {
+        dispatch(setInitial(false));
+      }
+
       dispatch(setFailed(false));
+
       dispatch(setPressedButton('Enter'));
     }
   };
+
   useEffect(() => {
     if (hasFailed) {
       setCurrentDirection(directions.right);

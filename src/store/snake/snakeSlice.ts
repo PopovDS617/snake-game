@@ -4,10 +4,11 @@ import SnakeState, { Coordinates } from '../../models/snake-types';
 import { initialSnakeCoordinates, initialSpeed } from '../../utils/initial';
 
 const initialState: SnakeState = {
+  isInitial: true,
   coordinates: initialSnakeCoordinates,
   score: 0,
   bestScore: getBestScore() ?? 0,
-  hasFailed: false,
+  hasFailed: true,
   speed: initialSpeed,
 };
 
@@ -15,6 +16,9 @@ const snakeSlice = createSlice({
   name: 'snake',
   initialState,
   reducers: {
+    setInitial(state, action: PayloadAction<boolean>) {
+      state.isInitial = action.payload;
+    },
     setCoordinates(state, action: PayloadAction<Coordinates>) {
       state.coordinates = action.payload;
     },

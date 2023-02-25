@@ -4,13 +4,15 @@ import './screen.scss';
 import useGame from '../../hooks/useGame';
 import { setStyles } from './screen-utils';
 import Modal from '../Modal/Modal';
+import { useAppSelector } from '../../store/store-hooks';
 
 const Screen = () => {
-  const { coordinates, foodPosition, hasFailed, score } = useGame();
+  const { coordinates, foodPosition, score } = useGame();
+  const { isInitial, hasFailed } = useAppSelector((state) => state.snake);
 
   return (
     <div className="screen">
-      {hasFailed ? (
+      {hasFailed || isInitial ? (
         <Modal score={score} />
       ) : (
         <div className="board">

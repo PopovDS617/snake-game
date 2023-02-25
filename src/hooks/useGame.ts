@@ -21,7 +21,7 @@ const useGame = () => {
   } = snakeActions;
 
   // state
-  const { coordinates, hasFailed, score, speed } = useAppSelector(
+  const { coordinates, hasFailed, score, speed, isInitial } = useAppSelector(
     (state) => state.snake
   );
 
@@ -53,7 +53,7 @@ const useGame = () => {
 
   //regular movement
   useEffect(() => {
-    if (!hasFailed) {
+    if (!hasFailed && !isInitial) {
       const interval = setInterval(() => {
         moveSnake();
       }, speed);
@@ -62,11 +62,11 @@ const useGame = () => {
         clearInterval(interval);
       };
     }
-  }, [coordinates, directions]);
+  }, [coordinates, directions, hasFailed, isInitial]);
 
   //back to default
   useEffect(() => {
-    if (!hasFailed) {
+    if (!hasFailed && !isInitial) {
       generateRandomFoodPosition();
       dispatch(resetSpeed());
       dispatch(resetCoordinates());
