@@ -77,7 +77,6 @@ const useGame = () => {
   return {
     foodPosition,
     coordinates,
-    hasFailed,
     score,
   };
 };

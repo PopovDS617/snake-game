@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import './modal.scss';
 import { useAppSelector } from '../../store/store-hooks';
 import MotionParagraph from '../Animation/MotionParagraph';
+import { buttonNameHandler } from '../../utils/button-names';
 
 interface Props {
   score: number;
@@ -21,6 +22,8 @@ const Modal = (props: Props) => {
     enter: { opacity: 1 },
     exit: { opacity: 0 },
   };
+
+  const buttonText = buttonNameHandler('start', 'Enter');
 
   const failVariant = (
     <MotionParagraph style="modal-text">
@@ -45,7 +48,9 @@ const Modal = (props: Props) => {
     >
       {isInitial ? startVariant : failVariant}
       <MotionParagraph style="modal-text">
-        press <span className="modal-text__start">Start</span> to play
+        press
+        <span className="modal-text__start">{buttonText}</span>
+        to play
       </MotionParagraph>
     </motion.div>
   );
