@@ -17,4 +17,4 @@
 - [x] add bestscore (store in local storage)
 - [x] add animations
 - [ ] add custom snake head
-- [ ] add initial screen
+- [x] add initial screen
