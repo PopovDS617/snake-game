@@ -37,11 +37,14 @@
     -webkit-animation: glow 1s infinite alternate;
     animation: glow 1s infinite alternate;
   }
-}
-
-@-webkit-keyframes glow {
-  from {
-    -webkit-box-shadow: 0 0 2px 0px red;
-    box-shadow: 0 0 2px 0px red;
+  @keyframes glow {
+    from {
+      -webkit-box-shadow: 0 0 2px 0px red;
+      box-shadow: 0 0 2px 0px red;
+    }
+    to {
+      -webkit-box-shadow: 0 0 5px 3px red;
+      box-shadow: 0 0 5px 3px red;
+    }
   }
 }
