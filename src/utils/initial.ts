@@ -1,3 +1,3 @@
 export const initialSnakeCoordinates = [0, 1, 2, 3];
 
-export const initialSpeed = 270;
+export const initialSpeed = 260;
