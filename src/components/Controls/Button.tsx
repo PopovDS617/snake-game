@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './controls.scss';
 import { useAppSelector } from '../../store/store-hooks';
 
-interface Props {
+interface ButtonProps {
   direction: string;
   onTurn: () => void;
   variant: string;
   bindedButton: string | null;
 }
 
-const Button = (props: Props) => {
+export const Button = (props: ButtonProps) => {
   const [isButtonActive, setIsButtonAcitve] = useState(false);
 
   const pressedButton = useAppSelector((state) => state.controls.pressedButton);
@@ -38,5 +38,3 @@ const Button = (props: Props) => {
     </button>
   );
 };
-
-export default Button;

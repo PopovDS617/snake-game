@@ -1,5 +1,5 @@
-import CurrentScore from './CurrentScore';
-import BestScore from './BestScore';
+import { CurrentScore } from './CurrentScore';
+import { BestScore } from './BestScore';
 import { useAppSelector } from '../../store/store-hooks';
 import './score.scss';
 

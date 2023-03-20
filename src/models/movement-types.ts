@@ -1,3 +1,3 @@
-export interface Directions<T> {
-  [key: string]: T;
+export interface Directions {
+  [key: string]: number;
 }

@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../store/store-hooks';
 import { snakeActions } from '../../store/snake/snakeSlice';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { moveSnakeForward } from '../useSlither/use-slither-utils';
 import useControlButtons from '../useControlButtons/useControlButtons';
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { turnHandler } from '../../hooks/useControlButtons/use-control-buttons-utils';
-import Button from './Button';
+import { Button } from './Button';
 import { DirectionButtons } from '../../enums/DirectionButtons';
 import './controls.scss';
 
-const DirectionControls = () => {
+export const DirectionControls = () => {
   return (
     <>
       <div className="button-row">
@@ -49,5 +49,3 @@ const DirectionControls = () => {
     </>
   );
 };
-
-export default DirectionControls;

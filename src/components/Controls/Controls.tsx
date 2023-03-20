@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from './Button';
+import { Button } from './Button';
 import { turnHandler } from '../../hooks/useControlButtons/use-control-buttons-utils';
 import { DirectionButtons } from '../../enums/DirectionButtons';
 import './controls.scss';
-import DirectionControls from './DirectionControls';
+import { DirectionControls } from './DirectionControls';
 import { useAppSelector } from '../../store/store-hooks';
 import { buttonNameHandler } from '../../utils/button-names';
 
